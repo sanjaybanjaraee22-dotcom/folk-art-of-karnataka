@@ -63,6 +63,30 @@
       <p>Warrior dance dedicated to Veerabhadra.</p>
     </article>
 
+    <article class="card" onclick="openModal('hulivesha')">
+      <img src="images/hulivesha.jpg.avif" alt="Hulivesha">
+      <h3>Hulivesha</h3>
+      <p>Tiger dance symbolizing strength and courage.</p>
+    </article>
+
+    <article class="card" onclick="openModal('kolata')">
+      <img src="images/kolata.jpg.jpeg" alt="Kolata">
+      <h3>Kolata</h3>
+      <p>Group folk dance using wooden sticks.</p>
+    </article>
+
+    <article class="card" onclick="openModal('bhootha')">
+      <img src="images/Bhootha.jpg.avif" alt="Bhootha Kola">
+      <h3>Bhootha Kola</h3>
+      <p>Spirit worship ritual of coastal Karnataka.</p>
+    </article>
+
+    <article class="card" onclick="openModal('nagamandala')">
+      <img src="images/nagamandala.jpg.avif" alt="Nagamandala">
+      <h3>Nagamandala</h3>
+      <p>Serpent worship ritual dance performed overnight.</p>
+    </article>
+
   </div>
 </section>
 
@@ -71,7 +95,8 @@
   <h2>Cultural Significance</h2>
   <p>
     Karnataka’s folk arts preserve tradition, strengthen community bonds,
-    and pass indigenous knowledge across generations.
+    and transmit indigenous knowledge across generations. These art forms
+    represent the spiritual, social, and cultural life of the people.
   </p>
 </section>
 
@@ -113,33 +138,24 @@
   const artDetails = {
     yakshagana: {
       title: "Yakshagana",
-      text: `Origin: Coastal Karnataka (Udupi, Uttara Kannada)
+      text: `Region: Coastal Karnataka
 
-Yakshagana is a traditional dance-drama that combines dance, music,
-dialogue, elaborate costumes, and makeup.
+A classical folk dance-drama combining dance, music, dialogue, and elaborate costumes.
 
 Themes:
 • Ramayana
 • Mahabharata
-• Puranas
 
 Instruments:
 • Chande
-• Maddale
-
-Performed during temple festivals and village celebrations.`
+• Maddale`
     },
 
     dollu: {
       title: "Dollu Kunitha",
       text: `Region: Central Karnataka
 
-Dollu Kunitha is a powerful drum dance traditionally performed by women.
-
-Features:
-• Large drums (Dollu)
-• Synchronized movements
-• High energy rhythm
+A powerful drum dance traditionally performed by men.
 
 Symbolizes strength, unity, and devotion.`
     },
@@ -148,51 +164,57 @@ Symbolizes strength, unity, and devotion.`
       title: "Kamsale",
       text: `Region: Southern Karnataka
 
-Kamsale is a devotional dance performed using bronze cymbals.
-
-Associated with:
-• Lord Mahadeshwara
-
-Nature:
-• Spiritual
-• Devotional
-• Pilgrimage rituals`
+A devotional dance using bronze cymbals, associated with Lord Mahadeshwara.`
     },
 
     somana: {
       title: "Somana Kunita",
       text: `Region: Southern Karnataka
 
-Somana Kunita is a ritual mask dance performed during village festivals.
-
-Purpose:
-• Ward off evil
-• Invoke divine blessings
-
-Features:
-• Masks
-• Drums
-• Ritual movements`
+A ritual mask dance performed during village festivals to ward off evil spirits.`
     },
 
     veeragase: {
       title: "Veeragase",
       text: `Region: Southern Karnataka
 
-Veeragase is a warrior dance dedicated to Lord Veerabhadra.
+A warrior dance dedicated to Lord Veerabhadra, symbolizing courage and valor.`
+    },
 
-Symbolism:
-• Courage
-• Valor
-• Devotion
+    hulivesha: {
+      title: "Hulivesha (Tiger Dance)",
+      text: `Region: Coastal Karnataka
 
-Costume includes swords, shields, and traditional attire.`
+Performers paint their bodies like tigers.
+
+Symbolizes strength, bravery, and energy.`
+    },
+
+    kolata: {
+      title: "Kolata",
+      text: `Region: Karnataka
+
+A rhythmic group dance using wooden sticks, symbolizing unity and coordination.`
+    },
+
+    bhootha: {
+      title: "Bhootha Kola",
+      text: `Region: Coastal Karnataka
+
+A ritual spirit worship performed to honor local guardian deities.`
+    },
+
+    nagamandala: {
+      title: "Nagamandala",
+      text: `Region: Coastal & Southern Karnataka
+
+A night-long serpent worship ritual believed to bring fertility and protection.`
     }
   };
 
-  function openModal(art) {
-    modalTitle.textContent = artDetails[art].title;
-    modalText.textContent = artDetails[art].text;
+  function openModal(key) {
+    modalTitle.textContent = artDetails[key].title;
+    modalText.textContent = artDetails[key].text;
     modal.style.display = "flex";
   }
 
@@ -200,8 +222,8 @@ Costume includes swords, shields, and traditional attire.`
     modal.style.display = "none";
   }
 
-  window.onclick = function(e) {
-    if (e.target === modal) closeModal();
+  window.onclick = function(event) {
+    if (event.target === modal) closeModal();
   };
 </script>
 
