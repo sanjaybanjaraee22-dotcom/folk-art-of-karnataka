@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Folk Art Forms of Karnataka</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="audio/karnataka_bg.mp3" type="audio/mpeg">
+</audio>
+<button class="music-toggle" onclick="toggleMusic()">🔇 Music Off</button>
+
+<!-- HERO -->
+<header class="hero">
+  <h1>Folk Art Forms of Karnataka</h1>
+  <p>Indian Knowledge Systems (IKS) Project</p>
+</header>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#arts">Art Forms</a>
+  <a href="#culture">Cultural Significance</a>
+</nav>
+
+<!-- ART FORMS -->
+<section id="arts" class="section bg-light">
+  <h2>Major Folk Art Forms</h2>
+
+  <div class="card-grid">
+
+    <article class="card" onclick="openModal('yakshagana')">
+      <img src="images/Yakshagana.jpg.jpg" alt="Yakshagana">
+      <h3>Yakshagana</h3>
+      <p>Traditional dance-drama of coastal Karnataka.</p>
+    </article>
+
+    <article class="card" onclick="openModal('dollu')">
+      <img src="images/Dollu.jpg.jpg" alt="Dollu Kunitha">
+      <h3>Dollu Kunitha</h3>
+      <p>Powerful drum dance symbolizing strength.</p>
+    </article>
+
+    <article class="card" onclick="openModal('kamsale')">
+      <img src="images/kamsale.jpg.jpg" alt="Kamsale">
+      <h3>Kamsale</h3>
+      <p>Devotional dance using bronze cymbals.</p>
+    </article>
+
+    <article class="card" onclick="openModal('somana')">
+      <img src="images/somana.jpg.jpg" alt="Somana Kunita">
+      <h3>Somana Kunita</h3>
+      <p>Ritualistic mask dance of villages.</p>
+    </article>
+
+    <article class="card" onclick="openModal('veeragase')">
+      <img src="images/veeragase.jpg.jpg" alt="Veeragase">
+      <h3>Veeragase</h3>
+      <p>Warrior dance dedicated to Veerabhadra.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- CULTURE -->
+<section id="culture" class="section highlight">
+  <h2>Cultural Significance</h2>
+  <p>
+    Karnataka’s folk arts preserve tradition, strengthen community bonds,
+    and pass indigenous knowledge across generations.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>IKS Academic Project – Folk Art Forms of Karnataka</p>
+</footer>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  /* MUSIC */
+  const music = document.getElementById("bgMusic");
+  const musicBtn = document.querySelector(".music-toggle");
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      musicBtn.textContent = "🔊 Music On";
+    } else {
+      music.pause();
+      musicBtn.textContent = "🔇 Music Off";
+    }
+  }
+
+  /* MODAL DATA */
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalText = document.getElementById("modal-text");
+
+  const artDetails = {
+    yakshagana: {
+      title: "Yakshagana",
+      text: `Origin: Coastal Karnataka (Udupi, Uttara Kannada)
+
+Yakshagana is a traditional dance-drama that combines dance, music,
+dialogue, elaborate costumes, and makeup.
+
+Themes:
+• Ramayana
+• Mahabharata
+• Puranas
+
+Instruments:
+• Chande
+• Maddale
+
+Performed during temple festivals and village celebrations.`
+    },
+
+    dollu: {
+      title: "Dollu Kunitha",
+      text: `Region: Central Karnataka
+
+Dollu Kunitha is a powerful drum dance traditionally performed by women.
+
+Features:
+• Large drums (Dollu)
+• Synchronized movements
+• High energy rhythm
+
+Symbolizes strength, unity, and devotion.`
+    },
+
+    kamsale: {
+      title: "Kamsale",
+      text: `Region: Southern Karnataka
+
+Kamsale is a devotional dance performed using bronze cymbals.
+
+Associated with:
+• Lord Mahadeshwara
+
+Nature:
+• Spiritual
+• Devotional
+• Pilgrimage rituals`
+    },
+
+    somana: {
+      title: "Somana Kunita",
+      text: `Region: Southern Karnataka
+
+Somana Kunita is a ritual mask dance performed during village festivals.
+
+Purpose:
+• Ward off evil
+• Invoke divine blessings
+
+Features:
+• Masks
+• Drums
+• Ritual movements`
+    },
+
+    veeragase: {
+      title: "Veeragase",
+      text: `Region: Southern Karnataka
+
+Veeragase is a warrior dance dedicated to Lord Veerabhadra.
+
+Symbolism:
+• Courage
+• Valor
+• Devotion
+
+Costume includes swords, shields, and traditional attire.`
+    }
+  };
+
+  function openModal(art) {
+    modalTitle.textContent = artDetails[art].title;
+    modalText.textContent = artDetails[art].text;
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(e) {
+    if (e.target === modal) closeModal();
+  };
+</script>
+
+</body>
+</html>
