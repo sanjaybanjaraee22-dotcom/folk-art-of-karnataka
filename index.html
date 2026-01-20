@@ -34,57 +34,57 @@
   <div class="card-grid">
 
     <article class="card" onclick="openModal('yakshagana')">
-      <img src="images/Yakshagana.jpg.jpg" alt="Yakshagana">
+      <img src="images/Yakshagana.jpg.jpg">
       <h3>Yakshagana</h3>
       <p>Traditional dance-drama of coastal Karnataka.</p>
     </article>
 
     <article class="card" onclick="openModal('dollu')">
-      <img src="images/Dollu.jpg.jpg" alt="Dollu Kunitha">
+      <img src="images/Dollu.jpg.jpg">
       <h3>Dollu Kunitha</h3>
       <p>Powerful drum dance symbolizing strength.</p>
     </article>
 
     <article class="card" onclick="openModal('kamsale')">
-      <img src="images/kamsale.jpg.jpg" alt="Kamsale">
+      <img src="images/kamsale.jpg.jpg">
       <h3>Kamsale</h3>
       <p>Devotional dance using bronze cymbals.</p>
     </article>
 
     <article class="card" onclick="openModal('somana')">
-      <img src="images/somana.jpg.jpg" alt="Somana Kunita">
+      <img src="images/somana.jpg.jpg">
       <h3>Somana Kunita</h3>
       <p>Ritualistic mask dance of villages.</p>
     </article>
 
     <article class="card" onclick="openModal('veeragase')">
-      <img src="images/veeragase.jpg.jpg" alt="Veeragase">
+      <img src="images/veeragase.jpg.jpg">
       <h3>Veeragase</h3>
       <p>Warrior dance dedicated to Veerabhadra.</p>
     </article>
 
     <article class="card" onclick="openModal('hulivesha')">
-      <img src="images/hulivesha.jpg.avif" alt="Hulivesha">
+      <img src="images/hulivesha.jpg.avif">
       <h3>Hulivesha</h3>
       <p>Tiger dance symbolizing strength and courage.</p>
     </article>
 
     <article class="card" onclick="openModal('kolata')">
-      <img src="images/kolata.jpg.jpeg" alt="Kolata">
+      <img src="images/kolata.jpg.jpeg">
       <h3>Kolata</h3>
       <p>Group folk dance using wooden sticks.</p>
     </article>
 
     <article class="card" onclick="openModal('bhootha')">
-      <img src="images/Bhootha.jpg.avif" alt="Bhootha Kola">
+      <img src="images/Bhootha.jpg.avif">
       <h3>Bhootha Kola</h3>
       <p>Spirit worship ritual of coastal Karnataka.</p>
     </article>
 
     <article class="card" onclick="openModal('nagamandala')">
-      <img src="images/nagamandala.jpg.avif" alt="Nagamandala">
+      <img src="images/nagamandala.jpg.avif">
       <h3>Nagamandala</h3>
-      <p>Serpent worship ritual dance performed overnight.</p>
+      <p>Serpent worship ritual performed overnight.</p>
     </article>
 
   </div>
@@ -95,8 +95,7 @@
   <h2>Cultural Significance</h2>
   <p>
     Karnataka’s folk arts preserve tradition, strengthen community bonds,
-    and transmit indigenous knowledge across generations. These art forms
-    represent the spiritual, social, and cultural life of the people.
+    and transmit indigenous knowledge across generations.
   </p>
 </section>
 
@@ -109,8 +108,15 @@
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
+
     <h2 id="modal-title"></h2>
     <p id="modal-text"></p>
+
+    <h4>🎙️ Voice Narration</h4>
+    <audio id="narration" controls></audio>
+
+    <h4>🎥 Performance Video</h4>
+    <a id="video-link" class="video-btn" target="_blank">Watch Video</a>
   </div>
 </div>
 
@@ -130,100 +136,86 @@
     }
   }
 
-  /* MODAL DATA */
+  /* MODAL + NARRATION */
   const modal = document.getElementById("modal");
   const modalTitle = document.getElementById("modal-title");
   const modalText = document.getElementById("modal-text");
+  const narration = document.getElementById("narration");
+  const videoLink = document.getElementById("video-link");
 
   const artDetails = {
     yakshagana: {
       title: "Yakshagana",
-      text: `Region: Coastal Karnataka
-
-A classical folk dance-drama combining dance, music, dialogue, and elaborate costumes.
-
-Themes:
-• Ramayana
-• Mahabharata
-
-Instruments:
-• Chande
-• Maddale`
+      text: "A classical folk dance-drama of coastal Karnataka based on epics.",
+      audio: "audio/yakshagana.mp3",
+      video: "https://www.youtube.com/results?search_query=yakshagana+dance"
     },
-
     dollu: {
       title: "Dollu Kunitha",
-      text: `Region: Central Karnataka
-
-A powerful drum dance traditionally performed by men.
-
-Symbolizes strength, unity, and devotion.`
+      text: "Powerful drum dance symbolizing strength and unity.",
+      audio: "audio/dollu.mp3",
+      video: "https://www.youtube.com/results?search_query=dollu+kunitha"
     },
-
     kamsale: {
       title: "Kamsale",
-      text: `Region: Southern Karnataka
-
-A devotional dance using bronze cymbals, associated with Lord Mahadeshwara.`
+      text: "Devotional dance dedicated to Lord Mahadeshwara.",
+      audio: "audio/kamsale.mp3",
+      video: "https://www.youtube.com/results?search_query=kamsale+dance"
     },
-
     somana: {
       title: "Somana Kunita",
-      text: `Region: Southern Karnataka
-
-A ritual mask dance performed during village festivals to ward off evil spirits.`
+      text: "Ritual mask dance to ward off evil spirits.",
+      audio: "audio/somana.mp3",
+      video: "https://www.youtube.com/results?search_query=somana+kunita"
     },
-
     veeragase: {
       title: "Veeragase",
-      text: `Region: Southern Karnataka
-
-A warrior dance dedicated to Lord Veerabhadra, symbolizing courage and valor.`
+      text: "Warrior dance dedicated to Lord Veerabhadra.",
+      audio: "audio/veeragase.mp3",
+      video: "https://www.youtube.com/results?search_query=veeragase+dance"
     },
-
     hulivesha: {
-      title: "Hulivesha (Tiger Dance)",
-      text: `Region: Coastal Karnataka
-
-Performers paint their bodies like tigers.
-
-Symbolizes strength, bravery, and energy.`
+      title: "Hulivesha",
+      text: "Tiger dance symbolizing strength and courage.",
+      audio: "audio/hulivesha.mp3",
+      video: "https://www.youtube.com/results?search_query=hulivesha+tiger+dance"
     },
-
     kolata: {
       title: "Kolata",
-      text: `Region: Karnataka
-
-A rhythmic group dance using wooden sticks, symbolizing unity and coordination.`
+      text: "Group folk dance using wooden sticks.",
+      audio: "audio/kolata.mp3",
+      video: "https://www.youtube.com/results?search_query=kolata+dance"
     },
-
     bhootha: {
       title: "Bhootha Kola",
-      text: `Region: Coastal Karnataka
-
-A ritual spirit worship performed to honor local guardian deities.`
+      text: "Ritual spirit worship honoring guardian deities.",
+      audio: "audio/bhootha.mp3",
+      video: "https://www.youtube.com/results?search_query=bhootha+kola"
     },
-
     nagamandala: {
       title: "Nagamandala",
-      text: `Region: Coastal & Southern Karnataka
-
-A night-long serpent worship ritual believed to bring fertility and protection.`
+      text: "Night-long serpent worship ritual.",
+      audio: "audio/nagamandala.mp3",
+      video: "https://www.youtube.com/results?search_query=nagamandala+ritual"
     }
   };
 
   function openModal(key) {
     modalTitle.textContent = artDetails[key].title;
     modalText.textContent = artDetails[key].text;
+    narration.src = artDetails[key].audio;
+    narration.load();
+    videoLink.href = artDetails[key].video;
     modal.style.display = "flex";
   }
 
   function closeModal() {
+    narration.pause();
     modal.style.display = "none";
   }
 
-  window.onclick = function(event) {
-    if (event.target === modal) closeModal();
+  window.onclick = e => {
+    if (e.target === modal) closeModal();
   };
 </script>
 
