@@ -138,6 +138,7 @@ body {
 .modal-content p {
   white-space: pre-line;
   font-size: 0.95rem;
+  margin-bottom: 10px;
 }
 
 .close {
@@ -147,6 +148,27 @@ body {
   font-size: 26px;
   cursor: pointer;
   color: #7b1e1e;
+}
+
+/* ================= AUDIO & VIDEO ================= */
+.modal audio {
+  width: 100%;
+  margin: 8px 0 12px;
+}
+
+.video-btn {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 8px 16px;
+  background: #7b1e1e;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.video-btn:hover {
+  background: #a83232;
 }
 
 /* ================= MUSIC BUTTON ================= */
