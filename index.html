@@ -15,29 +15,32 @@
 </audio>
 <button class="music-toggle" onclick="toggleMusic()">🔇 Music Off</button>
 
+<!-- HERO -->
 <header class="hero">
   <h1>Folk Art Forms of Karnataka</h1>
   <p>Indian Knowledge Systems (IKS) Project</p>
 </header>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.html">Karnataka</a>
   <a href="rajasthan.html">Rajasthan</a>
 </nav>
 
-<section class="section bg-light">
+<!-- ART FORMS -->
+<section id="arts" class="section bg-light">
   <h2>Major Folk Art Forms</h2>
 
   <div class="card-grid">
 
     <article class="card" onclick="openModal('yakshagana')">
-      <img src="images/yakshagana.jpg.jpg">
+      <img src="images/Yakshagana.jpg.jpg">
       <h3>Yakshagana</h3>
       <p>Traditional dance-drama of coastal Karnataka.</p>
     </article>
 
     <article class="card" onclick="openModal('dollu')">
-      <img src="images/dollu.jpg.jpg">
+      <img src="images/Dollu.jpg.jpg">
       <h3>Dollu Kunitha</h3>
       <p>Powerful drum dance symbolizing strength.</p>
     </article>
@@ -51,44 +54,54 @@
     <article class="card" onclick="openModal('somana')">
       <img src="images/somana.jpg.jpg">
       <h3>Somana Kunita</h3>
-      <p>Ritualistic mask dance.</p>
+      <p>Ritualistic mask dance of villages.</p>
     </article>
 
     <article class="card" onclick="openModal('veeragase')">
       <img src="images/veeragase.jpg.jpg">
       <h3>Veeragase</h3>
-      <p>Warrior dance of devotion.</p>
+      <p>Warrior dance dedicated to Veerabhadra.</p>
     </article>
 
     <article class="card" onclick="openModal('hulivesha')">
-      <img src="images/hulivesha.jpg.jpg">
+      <img src="images/hulivesha.jpg.avif">
       <h3>Hulivesha</h3>
-      <p>Tiger dance of strength.</p>
+      <p>Tiger dance symbolizing strength and courage.</p>
     </article>
 
     <article class="card" onclick="openModal('kolata')">
-      <img src="images/kolata.jpg.jpg">
+      <img src="images/kolata.jpg.jpeg">
       <h3>Kolata</h3>
-      <p>Stick dance of unity.</p>
+      <p>Group folk dance using wooden sticks.</p>
     </article>
 
     <article class="card" onclick="openModal('bhootha')">
-      <img src="images/bhootha.jpg.jpg">
+      <img src="images/Bhootha.jpg.avif">
       <h3>Bhootha Kola</h3>
-      <p>Spirit worship ritual.</p>
+      <p>Spirit worship ritual of coastal Karnataka.</p>
     </article>
 
     <article class="card" onclick="openModal('nagamandala')">
-      <img src="images/nagamandala.jpg.jpg">
+      <img src="images/nagamandala.jpg.avif">
       <h3>Nagamandala</h3>
-      <p>Serpent worship ritual.</p>
+      <p>Serpent worship ritual performed overnight.</p>
     </article>
 
   </div>
 </section>
 
+<!-- CULTURE -->
+<section id="culture" class="section highlight">
+  <h2>Cultural Significance</h2>
+  <p>
+    Karnataka’s folk arts preserve tradition, strengthen community bonds,
+    and transmit indigenous knowledge across generations.
+  </p>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
-  <p>IKS Academic Project – Karnataka Folk Arts</p>
+  <p>IKS Academic Project – Folk Art Forms of Karnataka</p>
 </footer>
 
 <!-- MODAL -->
@@ -100,58 +113,110 @@
     <p id="modal-text"></p>
 
     <h4>🎙️ Voice Narration</h4>
-    <audio id="narration" controls preload="metadata"></audio>
+    <audio id="narration" controls></audio>
 
     <h4>🎥 Performance Video</h4>
     <a id="video-link" class="video-btn" target="_blank">Watch Video</a>
   </div>
 </div>
 
+<!-- SCRIPT -->
 <script>
-const music = document.getElementById("bgMusic");
-const musicBtn = document.querySelector(".music-toggle");
+  /* MUSIC */
+  const music = document.getElementById("bgMusic");
+  const musicBtn = document.querySelector(".music-toggle");
 
-function toggleMusic() {
-  if (music.paused) {
-    music.play();
-    musicBtn.textContent = "🔊 Music On";
-  } else {
-    music.pause();
-    musicBtn.textContent = "🔇 Music Off";
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      musicBtn.textContent = "🔊 Music On";
+    } else {
+      music.pause();
+      musicBtn.textContent = "🔇 Music Off";
+    }
   }
-}
 
-const modal = document.getElementById("modal");
-const title = document.getElementById("modal-title");
-const text = document.getElementById("modal-text");
-const narration = document.getElementById("narration");
-const video = document.getElementById("video-link");
+  /* MODAL + NARRATION */
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalText = document.getElementById("modal-text");
+  const narration = document.getElementById("narration");
+  const videoLink = document.getElementById("video-link");
 
-const art = {
-  yakshagana:{audio:"audio/yakshagana.mp3",video:"https://www.youtube.com/results?search_query=yakshagana+dance",text:"Classical dance-drama based on epics."},
-  dollu:{audio:"audio/dollu.mp3",video:"https://www.youtube.com/results?search_query=dollu+kunitha",text:"Powerful drum dance of unity."},
-  kamsale:{audio:"audio/kamsale.mp3",video:"https://www.youtube.com/results?search_query=kamsale+dance",text:"Devotional cymbal dance."},
-  somana:{audio:"audio/somana.mp3",video:"https://www.youtube.com/results?search_query=somana+kunita",text:"Ritual mask dance."},
-  veeragase:{audio:"audio/veeragase.mp3",video:"https://www.youtube.com/results?search_query=veeragase+dance",text:"Warrior devotion dance."},
-  hulivesha:{audio:"audio/hulivesha.mp3",video:"https://www.youtube.com/results?search_query=hulivesha+tiger+dance",text:"Tiger dance of courage."},
-  kolata:{audio:"audio/kolata.mp3",video:"https://www.youtube.com/results?search_query=kolata+dance",text:"Stick dance of rhythm."},
-  bhootha:{audio:"audio/bhootha.mp3",video:"https://www.youtube.com/results?search_query=bhootha+kola",text:"Spirit worship ritual."},
-  nagamandala:{audio:"audio/nagamandala.mp3",video:"https://www.youtube.com/results?search_query=nagamandala",text:"Serpent worship ritual."}
-};
+  const artDetails = {
+    yakshagana: {
+      title: "Yakshagana",
+      text: "A classical folk dance-drama of coastal Karnataka based on epics.",
+      audio: "audio/yakshagana.mp3",
+      video: "https://www.youtube.com/results?search_query=yakshagana+dance"
+    },
+    dollu: {
+      title: "Dollu Kunitha",
+      text: "Powerful drum dance symbolizing strength and unity.",
+      audio: "audio/dollu.mp3",
+      video: "https://www.youtube.com/results?search_query=dollu+kunitha"
+    },
+    kamsale: {
+      title: "Kamsale",
+      text: "Devotional dance dedicated to Lord Mahadeshwara.",
+      audio: "audio/kamsale.mp3",
+      video: "https://www.youtube.com/results?search_query=kamsale+dance"
+    },
+    somana: {
+      title: "Somana Kunita",
+      text: "Ritual mask dance to ward off evil spirits.",
+      audio: "audio/somana.mp3",
+      video: "https://www.youtube.com/results?search_query=somana+kunita"
+    },
+    veeragase: {
+      title: "Veeragase",
+      text: "Warrior dance dedicated to Lord Veerabhadra.",
+      audio: "audio/veeragase.mp3",
+      video: "https://www.youtube.com/results?search_query=veeragase+dance"
+    },
+    hulivesha: {
+      title: "Hulivesha",
+      text: "Tiger dance symbolizing strength and courage.",
+      audio: "audio/hulivesha.mp3",
+      video: "https://www.youtube.com/results?search_query=hulivesha+tiger+dance"
+    },
+    kolata: {
+      title: "Kolata",
+      text: "Group folk dance using wooden sticks.",
+      audio: "audio/kolata.mp3",
+      video: "https://www.youtube.com/results?search_query=kolata+dance"
+    },
+    bhootha: {
+      title: "Bhootha Kola",
+      text: "Ritual spirit worship honoring guardian deities.",
+      audio: "audio/bhootha.mp3",
+      video: "https://www.youtube.com/results?search_query=bhootha+kola"
+    },
+    nagamandala: {
+      title: "Nagamandala",
+      text: "Night-long serpent worship ritual.",
+      audio: "audio/nagamandala.mp3",
+      video: "https://www.youtube.com/results?search_query=nagamandala+ritual"
+    }
+  };
 
-function openModal(k){
-  title.textContent = k.charAt(0).toUpperCase()+k.slice(1);
-  text.textContent = art[k].text;
-  narration.src = art[k].audio;
-  narration.load();
-  video.href = art[k].video;
-  modal.style.display="flex";
-}
+  function openModal(key) {
+    modalTitle.textContent = artDetails[key].title;
+    modalText.textContent = artDetails[key].text;
+    narration.src = artDetails[key].audio;
+    narration.load();
+    videoLink.href = artDetails[key].video;
+    modal.style.display = "flex";
+  }
 
-function closeModal(){
-  narration.pause();
-  modal.style.display="none";
-}
+  function closeModal() {
+    narration.pause();
+    modal.style.display = "none";
+  }
+
+  window.onclick = e => {
+    if (e.target === modal) closeModal();
+  };
 </script>
 
 </body>
