@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rajasthan Art & Culture</title>
+  <title>Art & Culture of Rajasthan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -23,100 +23,39 @@
   <h2>Rajasthan Folk Arts</h2>
 
   <div class="card-grid">
-
     <article class="card" onclick="openModal('ghoomar')">
       <img src="images/ghoomar.jpg.jpg">
       <h3>Ghoomar</h3>
-      <p>Traditional women’s dance</p>
     </article>
 
     <article class="card" onclick="openModal('kalbeliya')">
       <img src="images/kalbeliya.jpg.jpg">
       <h3>Kalbeliya</h3>
-      <p>Snake-charmer community dance</p>
     </article>
 
     <article class="card" onclick="openModal('kathputli')">
       <img src="images/kathputli.jpg.jpg">
       <h3>Kathputli</h3>
-      <p>Traditional puppet theatre</p>
     </article>
 
     <article class="card" onclick="openModal('manganiyar')">
       <img src="images/manganiyar.jpg.jpg">
       <h3>Manganiyar Music</h3>
-      <p>Hereditary folk musicians</p>
     </article>
-
   </div>
 </section>
 
 <footer class="footer">
-  <p>IKS Project – Karnataka & Rajasthan Folk Arts</p>
+  <p>IKS Project – Rajasthan Folk Arts</p>
 </footer>
 
-<!-- MODAL (same as Karnataka) -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <h2 id="modal-title"></h2>
-    <p id="modal-text"></p>
-
-    <h4>🎙️ Voice Narration</h4>
-    <audio id="narration" controls></audio>
-
-    <h4>🎥 Performance Video</h4>
-    <a id="video-link" class="video-btn" target="_blank">Watch Video</a>
-  </div>
-</div>
-
 <script>
-const modal = document.getElementById("modal");
-const title = document.getElementById("modal-title");
-const text = document.getElementById("modal-text");
-const narration = document.getElementById("narration");
-const videoLink = document.getElementById("video-link");
-
-const data = {
-  ghoomar: {
-    title: "Ghoomar",
-    text: "Graceful folk dance of Rajasthan performed by women.",
-    audio: "audio/ghoomar.mp3",
-    video: "https://www.youtube.com/results?search_query=ghoomar+dance"
-  },
-  kalbeliya: {
-    title: "Kalbeliya",
-    text: "Energetic dance of the Kalbeliya community.",
-    audio: "audio/kalbeliya.mp3",
-    video: "https://www.youtube.com/results?search_query=kalbeliya+dance"
-  },
-  kathputli: {
-    title: "Kathputli",
-    text: "Traditional string puppet theatre.",
-    audio: "audio/kathputli.mp3",
-    video: "https://www.youtube.com/results?search_query=kathputli+puppet"
-  },
-  manganiyar: {
-    title: "Manganiyar Music",
-    text: "Traditional hereditary folk music of Rajasthan.",
-    audio: "audio/manganiyar.mp3",
-    video: "https://www.youtube.com/results?search_query=manganiyar+music"
-  }
+const art = {
+  ghoomar:{audio:"audio/ghoomar.mp3",video:"https://www.youtube.com/results?search_query=ghoomar+dance",text:"Graceful women’s folk dance."},
+  kalbeliya:{audio:"audio/kalbeliya.mp3",video:"https://www.youtube.com/results?search_query=kalbeliya+dance",text:"Snake-inspired community dance."},
+  kathputli:{audio:"audio/kathputli.mp3",video:"https://www.youtube.com/results?search_query=kathputli+puppet",text:"Traditional puppet theatre."},
+  manganiyar:{audio:"audio/manganiyar.mp3",video:"https://www.youtube.com/results?search_query=manganiyar+music",text:"Hereditary folk music."}
 };
-
-function openModal(key) {
-  title.textContent = data[key].title;
-  text.textContent = data[key].text;
-  narration.src = data[key].audio;
-  narration.load();
-  videoLink.href = data[key].video;
-  modal.style.display = "flex";
-}
-
-function closeModal() {
-  narration.pause();
-  modal.style.display = "none";
-}
 </script>
 
 </body>
